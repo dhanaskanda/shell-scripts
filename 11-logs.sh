@@ -13,7 +13,7 @@ then
     echo -e "$2 .... \e[31m FAILED \e[0m"
     exit 1
 else
-    echo " $2 SUCCESS"
+    echo -e "$2 \e[32m SUCCESS \e[0m"
 fi
 }
 if [ $ID -ne 0 ]
