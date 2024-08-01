@@ -21,7 +21,7 @@ fi
 
 yum install mysql -y
 
-CHECK $? Installing MYSQL
+CHECK $? "Installing MYSQL"
 
 yum install git -y
-CHECK $? Insalling GIT
+CHECK $? "Insalling GIT"
