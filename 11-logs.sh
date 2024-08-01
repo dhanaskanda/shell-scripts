@@ -10,7 +10,7 @@ LOGSFILE=/tmp/$0-$TIMESTAMP.log
 CHECK(){
     if [ $1 -ne 0 ]
 then
-    echo " $2 ....FAILED"
+    echo -e "$2 .... \e[31m FAILED \e[0m"
     exit 1
 else
     echo " $2 SUCCESS"
@@ -24,7 +24,7 @@ else
     echo "You are root user"
 fi
 
-yum install mysql -y &>> $LOGSFILE
+yum install mysqsl -y &>> $LOGSFILE
 
 CHECK $? "Installing MYSQL"
 
