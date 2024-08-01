@@ -5,7 +5,6 @@
 ID=$(id -u)
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
-
 LOGSFILE=/tmp/$0-$TIMESTAMP.log
 
 CHECK(){
