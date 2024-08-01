@@ -6,7 +6,7 @@ CHECK(){
     if [ $? -ne 0 ]
 then
     echo " Error :: Installation is FAILED"
-    exit1
+    exit 1
 else
     echo " Installation is SUCCESS"
 fi
@@ -14,7 +14,7 @@ fi
 if [ $ID -ne 0 ]
 then
     echo "Error: run the script using root user"
-    exit1
+    exit 1
 else
     echo "You are root user"
 fi
