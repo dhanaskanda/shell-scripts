@@ -16,7 +16,7 @@ CHECK(){
     then
         echo -e "$2.. $R Failed $N"
     else
-        echo "$2.. $G Success $N"
+        echo -e "$2.. $G Success $N"
     fi
 }
 
@@ -36,6 +36,6 @@ do
         yum install $package -y &>> $LOGSFILE # this install the package
         CHECK $? "Installing of $package"
     else
-        echo "this $package installed already"
+        echo "this $package installed already.. SKIPIING"
     fi 
 done

@@ -16,7 +16,7 @@ echo -e "Script started executing at $Y $TIMESTAMP" $N &>> $LOGSFILE
 CHECK(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2... $R FAILED $G"
+        echo -e "$2... $R FAILED $N"
     else
         echo -e "$2... $G SUCCESS"
     fi
