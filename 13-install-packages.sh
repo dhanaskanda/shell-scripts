@@ -5,22 +5,23 @@ ID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+Y="\e[33m"
 
 CHECK(){
     if [ $1 -ne 0 ]
     then
-        echo "$2... FAILED"
+        echo -e "$2... $R FAILED $G"
     else
-        echo "$2... SUCCESS"
+        echo -e "$2... $G SUCCESS"
     fi
 }
 
 if [ $ID -ne 0 ]
 then
     echo -e "$R Error: run the script using root user $N"
-    exit 1
+    exit 1 # if not 0
 else
-    echo "You are root user"
+    echo -e "You are $G root $N user"
 fi
 
 #echo -e "All arguments $G passed $N: $@" # This is to show what all arguments passed while executing the script
@@ -33,6 +34,6 @@ do
         yum install $package -y # Install the package
         CHECK $? "Installing of $package" # validate
     else
-        echo "The $package is already installed.. Skipping"
+        echo -e "The $package is already installed.. $Y Skipping $N"
     fi
 done
