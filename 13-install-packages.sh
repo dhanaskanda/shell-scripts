@@ -14,4 +14,15 @@ else
     echo "You are root user"
 fi
 
-echo -e "All arguments $G passed $N: $@"
+#echo -e "All arguments $G passed $N: $@" # This is to show what all arguments passed while executing the script
+
+for package in $@
+do
+    yum list installed $package # To check package is installed or not
+    if [ $? -ne 0 ]
+    then 
+        yum install $package -y # Install the package
+    else
+        echo "The $package is already installed.. Skipping"
+    fi
+done
