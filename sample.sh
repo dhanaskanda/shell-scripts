@@ -13,7 +13,7 @@ echo -e "Script started execution at $Y $TIMESTAMP $N"
 
 if [ $ID -ne 0 ]
 then
-    echo -e "$R Error: Run the script from root user $N
+    echo -e "$R Error: Run the script from root user $N"
     exit 1 # Exit if not 0
 else
     echo -e "You are $G root $N user"
