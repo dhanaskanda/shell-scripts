@@ -36,6 +36,6 @@ do
         yum install $package -y &>> $LOGSFILE # this install the package
         CHECK $? "Installing of $package"
     else
-        echo "this $package installed already.. SKIPIING"
+        echo -e "$package installed already.. $Y SKIPIING $N"
     fi 
 done
