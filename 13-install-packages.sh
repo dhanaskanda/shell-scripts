@@ -8,10 +8,10 @@ N="\e[0m"
 
 if [ $ID -ne 0 ]
 then
-    echo "$R Error: run the script using root user $N"
+    echo -e "$R Error: run the script using root user $N"
     exit 1
 else
     echo "You are root user"
 fi
 
-echo "All arguments $G passed $N: $@"
+echo -e "All arguments $G passed $N: $@"
