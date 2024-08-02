@@ -9,7 +9,16 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo -e "Script started execution at $Y $TIMESTAMP $N"
+echo -e "Script started execution at $Y $TIMESTAMP $N" &>> $LOGSFILE
+
+CHECK(){
+    if [ $1 -ne 0 ]
+    then
+        echo -e "$2.. $R Failed $N"
+    else
+        echo "$2.. $G Success $N"
+    fi
+}
 
 if [ $ID -ne 0 ]
 then
@@ -18,3 +27,15 @@ then
 else
     echo -e "You are $G root $N user"
 fi
+
+for package in $@
+do
+    yum list installed $package &>> $LOGSFILE # this will check the package installed or not
+    if [ $? -ne 0 ] 
+    then
+        yum install $package -y &>> $LOGSFILE # this install the package
+        CHECK $? "Installing of $package"
+    else
+        echo "this $package installed already"
+    fi 
+done
