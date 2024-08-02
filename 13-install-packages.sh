@@ -11,7 +11,7 @@ TIMESTAMP=$(date +%F-%H-%M-%S)
 
 LOGSFILE="/tmp/$0-$TIMESTAMP.log" # all logs will be stored here
 
-echo -e "Script started executing at $Y $TIMESTAMP $N" &>> $LOGSFILE
+echo -e "Script started executing at $Y $TIMESTAMP" $N &>> $LOGSFILE
 
 CHECK(){
     if [ $1 -ne 0 ]
