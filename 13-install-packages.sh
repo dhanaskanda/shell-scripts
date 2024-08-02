@@ -6,6 +6,15 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 
+CHECK(){
+    if [ $1 -ne 0 ]
+    then
+        echo "$2... FAILED"
+    else
+        echo "$2... SUCCESS"
+    fi
+}
+
 if [ $ID -ne 0 ]
 then
     echo -e "$R Error: run the script using root user $N"
@@ -22,6 +31,7 @@ do
     if [ $? -ne 0 ]
     then 
         yum install $package -y # Install the package
+        CHECK $? "Installing of $package" # validate
     else
         echo "The $package is already installed.. Skipping"
     fi
