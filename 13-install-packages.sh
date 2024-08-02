@@ -7,6 +7,12 @@ G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
 
+TIMESTAMP=$(date +%F-%H-%M-%S)
+
+LOGSFILE="/tmp/$0-$TIMESTAMP.log" # all logs will be stored here
+
+echo "Script started executing at $TIMESTAMP &>> $LOGSFILE"
+
 CHECK(){
     if [ $1 -ne 0 ]
     then
@@ -28,10 +34,10 @@ fi
 
 for package in $@
 do
-    yum list installed $package # To check package is installed or not
+    yum list installed $package &>> $LOGSFILE # To check package is installed or not
     if [ $? -ne 0 ]
     then 
-        yum install $package -y # Install the package
+        yum install $package -y &>> $LOGSFILE # Install the package
         CHECK $? "Installing of $package" # validate
     else
         echo -e "The $package is already installed.. $Y Skipping $N"
