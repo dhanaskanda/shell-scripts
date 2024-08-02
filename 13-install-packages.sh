@@ -2,12 +2,16 @@
 
 ID=$(id -u)
 
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+
 if [ $ID -ne 0 ]
 then
-    echo "Error: run the script using root user"
+    echo "$R Error: run the script using root user $N"
     exit 1
 else
     echo "You are root user"
 fi
 
-echo "All arguments passed: $@"
+echo "All arguments $G passed $N: $@"
