@@ -15,3 +15,5 @@ do
 done <<< $DISKUSAGE
 
 echo -e "message: $message"
+
+echo "$message" | mail -s "message" sutrayeanilkumarrao@gmail.com
