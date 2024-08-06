@@ -10,6 +10,7 @@ N="\e[0m"
 if [ ! -d $S_DIR ]
 then
     echo -e "$R source directory $S_DIR does not exists $N"
+    exit 1
 fi
 
 FILES_TO_DEL=$(find $S_DIR -type f -mtime +14 -name "*.log")
