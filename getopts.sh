@@ -19,7 +19,7 @@ USAGE(){
     echo " -h, Display the help and exit"
 }
 
-while getops ":-s:a:d:t:m opt"
+while getopts ":-s:a:d:t:m opt"
 do
     case $opt in
         s) SOURCE_DIR="$OPTARG";;
