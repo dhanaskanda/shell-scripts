@@ -26,6 +26,8 @@ while getopts ":n:w:h" opt; do
     esac
 done
 
+#--------------Condition----------#
+
 #if [ -z "$NAME" ] || [ -z "$WISHES" ]; then
 if [ -z "$NAME" ]; then # Now wishes are optional
     #echo "Error: Both -n and -w are mandatory options."
