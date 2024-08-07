@@ -8,6 +8,8 @@ ACTION=""
 DEST_DIR=""
 MEMORY=""
 
+R=[31e
+
 USAGE(){
     echo " USAGE:: $(basename $0) -s <source directory> -d <destination directory> -t <days> -m <memory> -a <action>"
     echo "Options::"
@@ -47,6 +49,12 @@ then
     echo "-d option is mandatory when -a action is given"
     exit 1
 fi
+
+if [ ! -ne $SOURCE_DIR ]
+then
+    echo -e "$SOURCE_DIR $R does not exist $N"
+fi
+
 
 
 
