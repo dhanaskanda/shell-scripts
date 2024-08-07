@@ -33,3 +33,23 @@ do
     esac
 done
 
+## Checking ACTION argument provided or not ##
+
+if [ -z $ACTION ]; then
+    echo "ERROR: -a option is mandotory either action or delete the content"
+    exit 1
+fi
+
+## Checking destination directory when action -a is given"
+
+if [ -z "$DEST_DIR" ] && [ "$ACTION" == "archive" ]
+then
+    echo "-d option is mandatory when -a action is given"
+    exit 1
+fi
+
+
+
+
+
+
