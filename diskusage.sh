@@ -18,3 +18,5 @@ do
 done <<< $DISKUSAGE
 
 echo -e "message: $message"
+
+echo "$message" | mail -s "High disk usage" sutrayeanilkumarrao@gmail.com
