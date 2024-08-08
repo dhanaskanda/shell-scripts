@@ -1,13 +1,13 @@
 #!/bin/bash
 
-**#---------------VARIABLE----------------**
+#---------------VARIABLE----------------**
 SOURCE_DIR=""
 DESTINATION_DIR=""
 DAYS=14
 MEMORY=""
 ACTION=""
 
-**#---------------- USAGE FUNCTOIN USED TO DISPLAY ------------------------------------------------**
+#---------------- USAGE FUNCTOIN USED TO DISPLAY ------------------------------------------------**
 USAGE(){
     echo "COMMAND USAGE:: $(basename $0) -s <Source Directory> -d <Destination Directory> -a <action: delete or archive> -t <No.of Days> -m<Memory size of file>"
     echo "Options: "
@@ -19,8 +19,7 @@ USAGE(){
     echo " -h: Display Help and exit" 
 }
 
-
-**#----------------------OPT ARGS---------------------------------------**
+#----------------------OPT ARGS---------------------------------------**
 while getopts ":s:d:t:m:a:h" opt;
 do
     case $opt in
@@ -34,7 +33,7 @@ do
     esac
 done
 
-**#------------------CHECKING ACTION ARGUMENT PROVIDED OR NOT---------------**
+#------------------CHECKING ACTION ARGUMENT PROVIDED OR NOT---------------**
 
 if [ -z "$ACTION" ] 
 then
@@ -42,7 +41,7 @@ then
     exit 1
 fi
 
-**#---------------------CHECKING DESTINATION DIR PROVIDED IF ARCHIVE OPTION CHOOSEN---------------**
+#---------------------CHECKING DESTINATION DIR PROVIDED IF ARCHIVE OPTION CHOOSEN---------------**
 
 if [ -z "$DESTINATION_DIR" ] && [ "$ACTION" == "arcive" ]
 then
@@ -55,7 +54,7 @@ then
     echo "Source directory: $SOURCE_DIR does not exists."
 fi
 
-**#-------------------------DELETE/ARCHIVE ACTION----------------------**
+#-------------------------DELETE/ARCHIVE ACTION----------------------**
 
 if [ "$ACTION"=="delete" ]
 then
