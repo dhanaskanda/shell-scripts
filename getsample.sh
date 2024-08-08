@@ -56,7 +56,7 @@ fi
 
 #-------------------------DELETE/ARCHIVE ACTION----------------------**
 
-if [ "$ACTION"=="delete" ]
+if [ $ACTION=="delete" ]
 then
 FILES_TO_DELETE=$(find $SOURCE_DIR -type f -mtime +"$DAYS" -name "*.log")
 
