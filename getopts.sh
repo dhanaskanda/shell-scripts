@@ -51,7 +51,7 @@ then
     exit 1
 fi
 
-if [ ! -ne $SOURCE_DIR ] # Denotes opposite
+if [ ! -d $SOURCE_DIR ] # Denotes opposite
 then
     echo -e "Source Directory: $SOURCE_DIR $R does not exist $N"
 fi
@@ -60,7 +60,7 @@ fi
 
 if [ Action == "delete" ]
 then
-    FILES_TO_DELETE=$(find $SOURCE_DIR -type f -mtime +"$DAYS" -name *.log)
+    FILES_TO_DELETE=$(find $SOURCE_DIR -type f -mtime +"$TIME" -name *.log)
 
     while IFS= read -r line
     do
@@ -68,7 +68,7 @@ then
         rm -rf $line
     done <<< $FILES_TO_DELETE
 else
-    FILES_TO_ARCHIVE=$(find $SOURCE_DIR -type f -mtime +"$DAYS" -name "*.log")
+    FILES_TO_ARCHIVE=$(find $SOURCE_DIR -type f -mtime +"$TIME" -name "*.log")
 
     while IFS= read -r line
     do
