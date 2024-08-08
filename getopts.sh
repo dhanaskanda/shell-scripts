@@ -74,7 +74,7 @@ else
     do
         echo "Archiving the files: $line"
         zip -r "$DEST_DIR/$(basename "$line").zip"
-        rm -rf $line
+        #rm -rf $line
     done <<< $FILES_TO_ARCHIVE
 fi
 
