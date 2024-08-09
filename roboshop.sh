@@ -24,21 +24,21 @@ do
 
     aws route53 change-resource-record-sets \
     --hosted-zone-id $HOSTED_ZONE \
-    --change-batch
+    --change-batch '
     {
-        {
-        "Comment": "Testing creating a record set"
-        ,"Changes": [{
-        "Action"              : "CREATE"
-        ,"ResourceRecordSet"  : {
-            "Name"              : "'$i'.'$DOMAIN_NAME'"
-            ,"Type"             : "A"
-            ,"TTL"              : 1
-            ,"ResourceRecords"  : [{
-                "Value"         : "'" $IPADDRESS "'"
+    
+            "Comment": "Testing creating a record set"
+            ,"Changes": [{
+            "Action"              : "CREATE"
+            ,"ResourceRecordSet"  : {
+                "Name"              : "'$i'.'$DOMAIN_NAME'"
+                ,"Type"             : "A"
+                ,"TTL"              : 1
+                ,"ResourceRecords"  : [{
+                    "Value"         : "'$IPADDRESS'"
+                }]
+            }
             }]
-        }
-        }]
     }
-    '
+        '
 done
