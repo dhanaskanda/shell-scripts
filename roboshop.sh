@@ -1,9 +1,17 @@
 #!/bin/bash
 
+# This script will be creating mongodb" "mysql" "redis" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web" instances along with the ROUTE53 records.......###
+
 AMI_ID="ami-0b4f379183e5706b9"
 SG_ID="sg-0a9760d01e0335af7"
 DOMAIN_NAME="dhanaskanda.online"
 HOSTED_ZONE="Z067782025J385S1OCSZM"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
+echo -e "$G Instance creation has been started $N"
 
 INSTANCES=("mongodb" "mysql" "redis" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
 
